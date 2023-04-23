@@ -1,6 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/Form";
+import http from "../services/httpService";
+import { toast } from "react-toastify";
 
 class SignUpForm extends Form {
   state = {
@@ -19,8 +21,13 @@ class SignUpForm extends Form {
       .label("Confirm password"),
   };
 
-  doSubmit = () => {
+  doSubmit = async () => {
     console.log("Submitted");
+    try {
+      await http.post("saddas");
+    } catch (ex) {
+      toast.error(ex.message);
+    }
   };
 
   render() {
