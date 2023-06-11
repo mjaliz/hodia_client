@@ -1,3 +1,3 @@
-# This the hodia client
+# This the Prade client
 
-## A safe social media application
+## An algorithmic platform to trade crypto currencies
