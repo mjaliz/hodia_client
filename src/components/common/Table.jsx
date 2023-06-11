@@ -1,28 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Table extends Component {
-  state = {
-    data: {},
-  };
-  renderTableHeader = (headers) => {
+const Table = ({ headers, body }) => {
+  const renderTableHeader = (headers) => {
     return (
       <thead>
         <tr>
           {headers.map((header, i) => (
-            <th scope="col">{header}</th>
+            <th scope="col" key={header}>
+              {header}
+            </th>
           ))}
         </tr>
       </thead>
     );
   };
-  renderTableBody = (body) => {
+  const renderTableBody = (body) => {
     return (
       <tbody>
         {body.map((row, i) => {
           return (
-            <tr>
+            <tr key={i}>
               {row.map((item, j) => {
-                return <td>{item}</td>;
+                return <td key={j}>{item}</td>;
               })}
             </tr>
           );
@@ -30,6 +29,12 @@ export class Table extends Component {
       </tbody>
     );
   };
-}
+  return (
+    <table className="table table-striped table-dark">
+      {renderTableHeader(headers)}
+      {renderTableBody(body)}
+    </table>
+  );
+};
 
 export default Table;

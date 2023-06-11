@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SignUpScreen from "./screens/SignUpScreen";
 import LoginScreen from "./screens/LoginScreen";
 import CurrenciesScreen from "./screens/CurrenciesScreen";
+import CurrencyPriceScreen from "./screens/CurrencyPriceScreen";
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
           <Route exact path="/sign_up" element={<SignUpScreen />} />
           <Route exact path="/login" element={<LoginScreen />} />
           <Route exact path="/currencies" element={<CurrenciesScreen />} />
+          <Route
+            exact
+            path="/currencies/:currency_id"
+            element={<CurrencyPriceScreen />}
+          />
         </Routes>
       </Router>
     </div>
