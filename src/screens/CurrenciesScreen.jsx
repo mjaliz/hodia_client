@@ -13,7 +13,7 @@ const CurrenciesScreen = () => {
       data.forEach((currency) => {
         currencies.push([
           currency["id"],
-          <Link to={`${currency["id"]}`} style={{ textDecoration: "none" }}>
+          <Link to={`${currency["name"]}`} style={{ textDecoration: "none" }}>
             {currency["symbol"]}
           </Link>,
           currency["name"],

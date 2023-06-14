@@ -1,10 +1,8 @@
-// TradingViewWidget.jsx
-
 import React, { useEffect, useRef } from "react";
 
 let tvScriptLoadingPromise;
 
-export default function TradingViewWidget() {
+export default function TradingViewWidget({ currencyName }) {
   const onLoadScriptRef = useRef();
 
   useEffect(() => {
@@ -35,8 +33,8 @@ export default function TradingViewWidget() {
       ) {
         new window.TradingView.widget({
           width: "100%",
-          height: "100%",
-          symbol: "KUCOIN:BTCUSDT",
+          height: "600px",
+          symbol: `KUCOIN:${currencyName}`,
           interval: "D",
           timezone: "Etc/UTC",
           theme: "light",
@@ -49,20 +47,12 @@ export default function TradingViewWidget() {
         });
       }
     }
-  }, []);
+  }, [currencyName]);
 
   return (
     <div className="tradingview-widget-container">
       <div id="tradingview_ffe22" />
-      <div className="tradingview-widget-copyright">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow"
-          target="_blank"
-        >
-          <span className="blue-text">Track all markets on TradingView</span>
-        </a>
-      </div>
+      <div className="tradingview-widget-copyright"></div>
     </div>
   );
 }

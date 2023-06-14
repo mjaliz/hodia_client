@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/currencies" element={<CurrenciesScreen />} />
           <Route
             exact
-            path="/currencies/:currency_id"
+            path="/currencies/:currency_name"
             element={<CurrencyPriceScreen />}
           />
           <Route exact path="/chart" element={<ChartScreen />} />
