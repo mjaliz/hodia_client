@@ -1,8 +1,8 @@
 import http from "./httpService";
 import config from "../config.json";
 
-export function getCurrencies() {
-  return http.get(`${config.apiEndpoint}/currencies`);
+export function getCurrencies(filter) {
+  return http.get(`${config.apiEndpoint}/currencies/?filter=${filter}`);
 }
 
 export function getCurrency(currency_id) {
